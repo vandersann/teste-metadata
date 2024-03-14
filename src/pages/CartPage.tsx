@@ -1,43 +1,46 @@
 // src/pages/Cart.tsx
 
-import React from 'react';
-import { useCart } from '../Context/CarContext';
-import '../components/Cart/Cart';
+import React from 'react'
+import { useCart } from '../Context/CarContext'
+import '../components/Cart/Cart'
 
 const CartPage: React.FC = () => {
-    const { cart, removeFromCart, clearCart } = useCart();
+  const { cart, removeFromCart, clearCart } = useCart()
 
-    const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  )
 
-return (
+  return (
     <div className="cart-page">
-        <h1>Carrinho de Compras</h1>
-        {cart.length === 0 ? (
+      <h1>Carrinho de Compras</h1>
+      {cart.length === 0 ? (
         <p>O seu carrinho está vazio.</p>
-        ) : (
+      ) : (
         <div>
-        {cart.map((item) => (
+          {cart.map((item) => (
             <div key={item.id} className="cart-item">
-                <div>
+              <div>
                 <strong>{item.name}</strong>
                 <span>Quantidade: {item.quantity}</span>
-                </div>
-                <div>
+              </div>
+              <div>
                 <span>Preço: R$ {item.price}</span>
                 <button onClick={() => removeFromCart(item.id)}>Remover</button>
-                </div>
+              </div>
             </div>
-            ))}
-        <div className="cart-total">
+          ))}
+          <div className="cart-total">
             <strong>Total:</strong> R$ {totalPrice.toFixed(2)}
-        </div>
-        <button onClick={clearCart} className="clear-cart">
+          </div>
+          <button onClick={clearCart} className="clear-cart">
             Limpar Carrinho
-        </button>
+          </button>
         </div>
-    )}
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default CartPage;
+export default CartPage
