@@ -1,11 +1,12 @@
-// src/pages/ProductDetails.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../services/api';
+import api from '../Services/api';
+import { Product as ProductType } from '../types';
 
-const ProductDetailsPage = () => {
+const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<ProductType | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -25,12 +26,13 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <div>
-      <h1>{product.title}</h1>
+    <div className="product-details">
+      <img src={product.image} alt={product.title} />
+      <h2>{product.title}</h2>
       <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
+      <p>${product.price}</p>
     </div>
   );
 };
 
-export default ProductDetailsPage;
+export default ProductDetails;

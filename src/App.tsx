@@ -7,6 +7,7 @@ import ProductDetailsPage from './pages/ProductDetails'
 import CartPage from './pages/CartPage'
 import { CartProvider } from './Context/CarContext'
 import './App.scss'
+import './style'
 
 export const App: React.FC = () => {
   return (
