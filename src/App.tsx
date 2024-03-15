@@ -5,9 +5,10 @@ import HomePage from './pages/Home'
 import ProductsPage from './pages/Products'
 import ProductDetailsPage from './pages/ProductDetails'
 import CartPage from './pages/CartPage'
+import Footer from './components/Footer/Footer'
 import { CartProvider } from './Context/CarContext'
 import './App.scss'
-import './style'
+import './style.scss'
 
 export const App: React.FC = () => {
   return (

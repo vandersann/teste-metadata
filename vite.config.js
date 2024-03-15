@@ -8,7 +8,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       sass: {
-        additionalData: `@import "./src/styles.sass";`, // Certifique-se de ajustar o caminho conforme a sua estrutura de pastas
+        additionalData: `@import "./src/style.sass";`, // Certifique-se de ajustar o caminho conforme a sua estrutura de pastas
       },
     },
   },
